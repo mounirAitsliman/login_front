@@ -22,16 +22,21 @@ export class TokenStorageService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-  public getToken(): string {
+  public getToken(): any {
     return sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user) {
+  public saveUser(user: any) {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUser() {
-    return JSON.parse(sessionStorage.getItem(USER_KEY));
+  // public getUser() {
+  //   return JSON.parse(sessionStorage.getItem(USER_KEY));
+  // }
+  public getUser(): any | null {
+    const userString = sessionStorage.getItem(USER_KEY);
+    return userString ? JSON.parse(userString) : null;
   }
+  
 }
