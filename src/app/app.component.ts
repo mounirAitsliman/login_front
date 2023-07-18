@@ -8,6 +8,9 @@ import { TokenStorageService } from './_services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   private roles: string[] | undefined;
   isLoggedIn = false;
   showAdminBoard = false;
@@ -23,8 +26,9 @@ export class AppComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showAdminBoard = this.roles?.includes('ROLE_ADMIN') ?? false;
+      this.showModeratorBoard = this.roles?.includes('ROLE_MODERATOR') ?? false;
+
 
       this.username = user.username;
     }
