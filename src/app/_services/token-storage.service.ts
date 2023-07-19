@@ -31,9 +31,11 @@ export class TokenStorageService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  // public getUser() {
+  // public getUser():any | null {
   //   return JSON.parse(sessionStorage.getItem(USER_KEY));
   // }
+
+  
   public getUser(): any | null {
     const userString = sessionStorage.getItem(USER_KEY);
     return userString ? JSON.parse(userString) : null;

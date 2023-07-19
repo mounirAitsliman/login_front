@@ -20,8 +20,6 @@
             name="username"
             [(ngModel)]="form.username"
             required
-            minlength="3"
-            maxlength="20"
             #username="ngModel"
           />
           <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
@@ -60,7 +58,6 @@
             name="password"
             [(ngModel)]="form.password"
             required
-            minlength="6"
             #password="ngModel"
           />
           <!-- <div class="alert-danger" *ngIf="f.submitted && password.invalid">
